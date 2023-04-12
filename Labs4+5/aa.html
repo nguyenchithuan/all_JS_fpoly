@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="bai1.css" rel="stylesheet">
+    <script src="provinces.js"></script>
+</head>
+
+<body>
+    <div class="khung">
+        <div id="layout">
+            <div class="nhom">
+                <div><label>Họ và tên</label></div>
+                <input type="text" id="name">
+                <span id="name_error" class="error" style="color: red;"></span>
+            </div>
+            <div class="nhom">
+                <div><label>Lớp</label></div>
+                <input type="text" id="class_name">
+                <span id="class_name_error" class="error" style="color: red;"> </span>
+            </div>
+            <div class="nhom">
+                <div><label>Ngày sinh</label></div>
+                <input type="date" id="birth_date">
+                <span id="birth_date_name_error" class="error"></span>
+            </div>
+            <div class="nhom">
+                <div><label>Tình trạng hôn nhân(đã kết hôn hay chưa)</label></div>
+                <fieldset class="fi">
+                    <input type="checkbox" id="is_maried">
+                    <label>Rồi</label>
+                    <input type="checkbox" id="is_maried">
+                    <label>Chưa</label>
+                    <input type="checkbox" id="is_maried">
+                    <label>suger đát đì</label>
+                </fieldset>
+
+            </div>
+            <div class="nhom">
+                <div><label>Quê quán</label></div>
+                <select id="provinces">
+                </select>
+            </div>
+            <button class="bt" onclick="run()">Run</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    function chayQueQuan() {
+        let queQuan = '';
+        for (let thanhPho of provinces) {
+            queQuan += `<option>${thanhPho.name}</option>`
+        }
+        document.querySelector("#provinces").innerHTML = queQuan;
+    }
+    chayQueQuan();
+
+</script>
+
+</html>

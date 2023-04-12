@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="sanPham.js"></script>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <div class="chucNang">Chọn chức năng
+        <ul class="menu">
+            <li><a href="bai1.html">Bộ sưu tập ảnh</a></li>
+            <li><a href="bai2.html">Đăng ký thành viên</a></li>
+            <li><a href="bai3.html">Bán hàng</a></li>
+        </ul>
+    </div>
+
+    <div class="center">
+        <h1 class="h1_bai3">BÁN HÀNG</h1>
+
+        <form>
+            <select id="sapXep" onchange="sapXepGia()">
+                <option value="">Chọn sắp xếp theo</option>
+                <option value="1">Tăng dần</option>
+                <option value="2">Giảm dần</option>
+            </select>
+        </form>
+        <br>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th class="dau_bai3">
+                        <input type="checkbox" id="checkcha" onchange="checkall()">
+                    </th>
+                    <th class="dau_bai3">Hàng hóa</th>
+                    <th class="dau_bai3">Đơn giá</th>
+                    <th class="dau_bai3">Số lượng</th>
+                    <th class="dau_bai3">Thành tiền</th>
+                </tr>
+            </thead>
+
+            <tbody></tbody>
+
+            <tfoot>
+                <th colspan="4" class="tong">TỔNG</th>
+                <th id="tong"></th>
+            </tfoot>
+        </table>
+    </div>
+
+    <script>
+
+        function sapXepGia() {
+            let theSelectValue = document.querySelector('#sapXep').value;
+            sanPham.sort(function (a, b) {
+                if (theSelectValue == 1) {
+                    return a.price > b.price ? 1 : -1;
+                } else if (theSelectValue == 2) {
+                    return a.price > b.price ? -1 : 1;
+                }
+            });
+            // chạy lại bảng để hiện thị bảng
+            tableSanPham();
+            document.querySelector('#tong').innerHTML = 0;
+            vohieu();
+            checkall();
+        }
+
+
+        function tableSanPham() {
+            let tbodyTag = document.querySelector('tbody');
+            let giaTri = sanPham.map(function (value) {
+                return `<tr id="dong_sp_${value.id}">
+                            <th>
+                                <input type="checkbox" id="sp_${value.id}" onchange="run()">    
+                            </th>
+                            <td>${value.name}</td>
+                            <td id="gia_${value.id}">${value.price}</td>
+                            <td>
+                                <input type="number" id="so_luong_sp${value.id}" value="0" min="0" step="1" onchange="chay()" class="nhom_bai3">   
+                            </td>
+                            <th id="ketqua_${value.id}"></th>
+                        </tr>`;
+            }); // mảng các giá trị chuỗi
+
+            tbodyTag.innerHTML = giaTri.join(""); // chuyển về giá trị chuỗi
+        }
+
+        // chạy để hiển thị sản phẩm
+        tableSanPham();
+
+        // Tính tổng
+        function chay() {
+            let tong = 0;
+            // chạy từ giá trị trong sản phẩm
+            for (let i = 1; i <= sanPham.length; i++) {
+                // chạy từ giá trị trong sản phẩm
+                // nếu giá trị nhỏ hơn 0 thì trở về 0
+                if (document.querySelector(`#so_luong_sp${i}`).value < 0) {
+                    document.querySelector(`#so_luong_sp${i}`).value = 0;
+                }
+                document.querySelector(`#ketqua_${i}`).innerHTML
+                    = document.querySelector(`#so_luong_sp${i}`).value * parseInt(document.querySelector(`#gia_${i}`).innerText);
+                // tính tổng các giá trị trong san phẩm
+                tong += parseInt(document.querySelector(`#ketqua_${i}`).innerText);
+            }
+            document.querySelector('tfoot #tong').innerHTML = tong;
+        }
+
+
+        // Tự độ vô hiệu hóa tất cả các thẻ
+        function vohieu() {
+            for (let i = 1; i <= sanPham.length; i++) {
+                document.querySelector(`#so_luong_sp${i}`).disabled = true;
+            }
+        }
+        vohieu();
+
+        // vô hiệu hóa
+        function run() {
+            let a = 0;
+            for (let i = 1; i <= sanPham.length; i++) {
+                a = document.querySelector(`#sp_${i}`);
+                if (a.checked == true) {
+                    document.querySelector(`#so_luong_sp${i}`).disabled = false;
+                } else {
+                    document.querySelector(`#so_luong_sp${i}`).disabled = true;
+                    // khi bỏ tích thì giá trị hàng ý về 0
+                    document.querySelector(`#so_luong_sp${i}`).value = 0;
+                    chay();
+                }
+            }
+        }
+
+        // checkall
+        function checkall() {
+            let a = document.querySelector('#checkcha');
+            if (a.checked == true) {
+                for (let i = 1; i <= sanPham.length; i++) {
+                    document.querySelector(`#sp_${i}`).checked = true;
+                }
+            } else {
+                for (let i = 1; i <= sanPham.length; i++) {
+                    document.querySelector(`#sp_${i}`).checked = false;
+                }
+            }
+            run();
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

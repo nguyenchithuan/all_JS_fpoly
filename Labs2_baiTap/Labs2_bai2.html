@@ -1,0 +1,39 @@
+Nhập các số được cách nhau bằng dấu cách: <input type="text" id="chuoi_goc">
+<br>
+Nhập số mong muốn sẽ loại bỏ: <input type="text" id="loai_bo">
+<br>
+<button onclick="run()">Chạy</button>
+<script>
+    function run(){
+        // Đề bài
+        // lấy giá trị từ thẻ input #chuoi_goc
+        // chuyển các số trong chuỗi thành mảng số
+        // hiển thị mảng gốc trong console
+        // loại bỏ số mong muốn (số đc viết trong thẻ input #loai_bo)
+        // khỏi mảng gốc
+        // in ra kết quả tại console.log
+
+
+
+        // Bài làm
+        // lấy giá trị từ thẻ
+        let giaTriChuoiGoc = document.querySelector('#chuoi_goc').value;
+        let giaTriMuonLoaiBo = document.querySelector('#loai_bo').value;
+
+        // tách mảng thành chuỗi
+        let arr1 = giaTriChuoiGoc.split(" ");
+        let arr2 = giaTriMuonLoaiBo.split(" ");
+
+        // hiển thị mảng
+        console.log("Giá trị ban đầu: " + arr1.join(", "));
+        console.log("Giá trị loại bỏ: " + arr2.join(", ")); 
+
+        // xong filter() thì gắn lại giá trị vào lại chính nó
+        arr1 = arr1.filter(function(value) {
+            return !arr2.includes(value); // kiểm tra giá trị ở mảng arr2 có cái nào có ở trong arr1 không nếu có thì không lấy
+        })
+
+        // hiển thị mảng sau khi đã xóa giá trị
+        console.log("Giá trị sau khi xóa: " + arr1.join(", "));
+    }
+</script>

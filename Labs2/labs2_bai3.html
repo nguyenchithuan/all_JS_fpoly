@@ -1,0 +1,15 @@
+<script>
+    let hoVaTen = prompt("Nhập họ và tên: ");
+    let diem = prompt("Nhập điểm trung bình");
+    alert("Họ và tên: " + hoVaTen.toUpperCase());
+    if(isNaN(diem) == false) {
+        diem = parseFloat(diem);
+        if(diem >= 5) {
+            alert("Bạn đã đạt");
+        } else {
+            alert("Bạn đã rớt");
+        }
+    } else {
+        alert("Nhập điểm bị lỗi!");
+    }
+</script>

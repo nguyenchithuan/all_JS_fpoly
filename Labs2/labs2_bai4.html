@@ -1,0 +1,16 @@
+<script>
+    let a = prompt("Mời bạn nhập số bất kỳ: ");
+    let random = 10 + Math.round(Math.random() * 5);
+    if(isNaN(a) == false) {
+        alert("Số bí mật của chương trình là: " + random);
+        if(a == random) {
+            alert("Chức mừng, bạn đã đoán đúng");
+        } else if(a > random) {
+            alert("Giá trị của bạn lớn hơn số bí mật!");
+        } else {
+            alert("Giá trị của bạn nhỏ hơn số bí mật!");
+        }
+    } else {
+        alert("Bạn nhập không phải là số!")
+    }
+</script>

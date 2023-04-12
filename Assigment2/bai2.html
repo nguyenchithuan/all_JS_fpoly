@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+    <script src="bai2.js"></script>
+    <script>
+        document.write(document.querySelector('#ma').value);
+        document.write(document.querySelector('#name').value);
+        document.write(document.querySelector('#email').value);
+        document.write(document.querySelector('#quocTich').value);
+        document.write(document.querySelector('#ghiChu').value);
+    </script>
+</head>
+
+<body>
+    <div class="chucNang">Chọn chức năng
+        <ul class="menu">
+            <li><a href="bai1.html">Bộ sưu tập ảnh</a></li>
+            <li><a href="bai2.html">Đăng ký thành viên</a></li>
+            <li><a href="bai3.html">Bán hàng</a></li>
+        </ul>
+    </div>
+
+    <div class="form">
+        <div class="div_form">
+            <h1>ĐĂNG KÝ THÀNH VIÊN</h1>
+            <div class="nhap nhom">
+                <label for="ma">Mã sinh viên</label><br>
+                <input type="text" id="ma" name="ma"> <br>
+                <span id="error_ma" style="color: red;"></span><br>
+            </div>
+
+            <div class="nhap nhom">
+                <label for="name">Họ và tên</label><br>
+                <input type="text" id="name" name="name"> <br>
+                <span id="error_name" style="color: red;"></span><br>
+            </div>
+
+            <div class="nhap nhom">
+                <label for="email">Email</label><br>
+                <input type="email" id="email" name="email"> <br>
+                <span id="error_email" style="color: red;"></span><br>
+            </div>
+
+            <div>
+                <fieldset class="khung nhom">
+                    <legend>Giới tính</legend>
+                    <input type="radio" id="nam" name="gioiTinh" value="Nam" checked>
+                    <label for="nam">Nam</label>
+
+                    <input type="radio" id="nu" name="gioiTinh" value="Nữ">
+                    <label for="nu">Nữ</label>
+                </fieldset> <br>
+
+            </div>
+
+            <div>
+                <fieldset class="khung nhom" id="khungSoThich">
+                    <legend>Sở thích</legend>
+                    <input type="checkbox" id="docSach" value="Đọc sách" name="a">
+                    <label for="docSach">Đọc sách</label>
+
+                    <input type="checkbox" id="duLich" value="Du lịch" name="a">
+                    <label for="duLich">Du lịch</label>
+
+                    <input type="checkbox" id="amNhac" value="Âm nhạc" name="a">
+                    <label for="amNhac">Âm nhạc</label>
+
+                    <input type="checkbox" id="amThuc" value="Ẩm thực" name="a">
+                    <label for="amThuc">Ẩm thực</label>
+
+                    <input type="checkbox" id="khac" value="Các sở thích khác" name="a">
+                    <label for="khac">Khác</label> 
+                </fieldset> <br>
+                <span id="error_sothich" style="color: red;"></span><br>
+
+
+                <div class="chon nhom">
+                    <label for="quocTich">Quốc tịch</label><br>
+                    <select name="" id="quocTich">
+                        <option value="">Chọc quốc tịch</option>
+                        <option value="Việt Nam">Việt Nam</option>
+                        <option value="Mỹ">Mỹ</option>
+                        <option value="Anh">Anh</option>
+                        <option value="Mỹ">Mỹ</option>
+                        <option value="Pháp">Pháp</option>
+                        <option value="Hà Lan">Hà Lan</option>
+                        <option value="Đức">Đức</option>
+                        <option value="Thụy sỹ">Thụy sỹ</option>
+                    </select> <br>
+                    <span id="error_quocTich" style="color: red;"></span><br>
+                </div>
+
+                <div class="nhom">
+                    <label for="ghiChu">Ghi chú</label><br>
+                    <textarea name="ghiChi" id="ghiChu" cols="66" rows="5"
+                        placeholder="Ghi chú phải ít hơn 200 ký tự!"></textarea> <br>
+                    <span id="error_ghichu" style="color: red;"></span><br>
+                </div>
+
+            </div><br>
+
+            <div class="nhom">
+                <button class="nut" onclick="run()">Đăng ký</button>
+            </div>
+        </div>
+        
+    </div>
+    
+    <br><hr>
+    <!-- Thẻ chứ kết quả -->
+    <div class="ketqua"></div>
+
+</body>
+
+</html>

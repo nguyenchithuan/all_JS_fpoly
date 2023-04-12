@@ -1,0 +1,45 @@
+Số thứ 1: <input type="text" id="canh_1"> <br>
+Số thứ 2: <input type="text" id="canh_2"> <br>
+Số thứ 3: <input type="text" id="canh_3"> <br>
+<button onclick="tamGia()">Run</button>
+<h3>Kết quả</h3>
+<p id="result"></p>
+
+<script>
+    function tamGia() {
+        // lấy thẻ <input>
+        let theSo1 = document.querySelector('#canh_1')
+        let theSo2 = document.querySelector('#canh_2')
+        let theSo3 = document.querySelector('#canh_3')
+
+        // lấy giá trị từ thẻ
+        let a = parseInt(theSo1.value)
+        let b = parseInt(theSo2.value)
+        let c = parseInt(theSo3.value)
+
+        // tìm cạnh dài nhất
+        if (a > b & a > c) {
+            alert("Cạnh dài nhất là: " + a);
+        } else if (b > c) {
+            alert("Cạnh dài nhất là: " + b);
+        } else {
+            alert("Cạnh dài nhất là: " + c);
+        }
+
+        // kiểm tra độ dài 3 cạnh có tạo thành 1 tam giác hay không
+        if (a + b > c && a + c > b && b + c > a) {
+            alert("Là một tam giác");
+
+            // hiện thị độ dài 3 cạnh nếu là một tam giác
+            let theKetQua = document.querySelector('#result');
+            theKetQua.innerHTML = "3 cạnh của một tam giác là: " + a + ", " + b + ", " + c;
+        } else {
+            alert("Không là một tam giác");
+        }
+
+        // tính diện tích tam giác
+        let p = (a + b + c) / 2; // nửa chu vi
+        let dienTich = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        alert("Diện tích tam giác là: " + dienTich);
+    }
+</script>

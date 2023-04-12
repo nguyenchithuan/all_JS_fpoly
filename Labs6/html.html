@@ -1,0 +1,47 @@
+<center>
+    <img src="https://vntoworld.com/wp-content/uploads/2021/09/hinh-anh-cac-loai-hoa-dep-nhat-the-gioi.jpg" width="600"
+        height="500"> <br> <br>
+    <button onclick="back()">Back</button>
+    <button onclick="next()">Next</button>
+    <button onclick="auto()">Auto</button>
+    <button onclick="pause()">Pause</button>
+</center>
+
+<script>
+    let index = 0;
+    let theImg = document.querySelector('img');
+    let mang = [
+        "https://vntoworld.com/wp-content/uploads/2021/09/hinh-anh-cac-loai-hoa-dep-nhat-the-gioi.jpg",
+        "https://img4.thuthuatphanmem.vn/uploads/2020/05/14/hinh-anh-hoa-hong-leo-dep_021528729.jpg",
+        "https://kenh14cdn.com/thumb_w/600/2016/f1-1453528942664.jpg",
+        "https://img.thuthuatphanmem.vn/uploads/2018/09/25/hinh-anh-hoa-cuc-cau-vong-dep_110817989.jpg"
+    ]
+
+    function next() {
+        if (index == mang.length - 1) {
+            index = 0;
+        } else {
+            index++;
+        }
+        theImg.src = mang[index];
+    }
+
+    function back() {
+        if (index == 0) {
+            index = mang.length - 1;
+        } else {
+            index--;
+        }
+        theImg.src = mang[index];
+    }
+
+    function auto() {
+        a = setInterval(function () {
+            next();
+        }, 500);
+    }
+
+    function pause() {
+        clearInterval(a);
+    }
+</script>

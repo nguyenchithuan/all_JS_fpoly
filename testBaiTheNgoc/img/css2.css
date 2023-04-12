@@ -1,0 +1,129 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.layout {
+    width: 1080px;
+    margin: 0px auto;
+}
+
+.moDau {
+    background-image: url(1.jpg);
+    padding-bottom: 12%;
+}
+
+.nav1 {
+    line-height: 50px;
+    text-align: center;
+}
+
+.nav1 ul {
+    list-style: none;
+    background-color: darkblue;
+    margin: 0px;
+    padding: 0px;
+}
+
+.nav1 ul li {
+    display: inline-block;
+}
+
+.nav1 ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0px 15px;
+}
+
+.nav1 ul li a:hover {
+    display: block;
+    background-color: orange;
+}
+
+header {
+    background-image: url(2.jpg);
+    padding-bottom: 25%;
+    background-size: 100% 100%;
+}
+
+.nav2 {
+    line-height: 50px;
+    text-align: center;
+    background-color: darkblue;
+}
+
+input {
+    width: 75%;
+    margin: 20px;
+}
+
+button {
+    color: white;
+    background-color: orange;    
+    border: 1px solid white;
+}
+
+.khung {
+    width: 48%;
+    border: 1px solid gray;
+    margin: 20px 0px 20px 0px;
+    float: left;
+}
+
+.khung img {
+    padding: 20px 10%;
+}
+
+.khung p {
+    padding: 10px 10% 0px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.khung p:hover {
+    color: red;
+}
+
+.khung1 {
+    margin-right: 30px;
+}
+
+.vung2{
+    border: 1px solid gray;
+    clear: both;
+    width: 99%;
+}
+
+.vung2 div {
+    margin: 20px;
+    position: relative;
+}
+
+.vung2 p {
+    padding: 10px 4% 0px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.vung2 p:hover {
+    color: red;
+}
+
+.vung2 img {
+    padding: 20px 4%;
+}
+
+
+.vung2 span {
+    position: absolute;
+    top: 75px;
+}
+
+
+footer {
+    margin: 20px 0px 0px 0px;
+    line-height: 50px;
+    background-color: darkblue;
+    color: white;
+    text-align: center;
+}

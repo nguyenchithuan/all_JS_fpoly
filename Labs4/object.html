@@ -1,0 +1,46 @@
+<script>
+    
+
+    // cách tạo ra đối tượng(object) - cách 1
+    let poly = new Object(); // object là một class của mọi lớp
+    poly.name = 'Cao đẳng FPT Polytechnic';
+    poly.address = 'Số 1, phố Trịnh Văn Bô, Nam Từ Liên, Hà Nôi';
+    poly.age = 12;
+    thongTin = function() {
+        return 'àdasdfasdf';
+    }
+
+    console.log(poly);
+
+
+    // cách tạo ra constructor - cách 2
+
+    function School(name, address, age) {
+        this.name = name,
+        this.address = address,
+        this.age = age,
+        this.thongTin = function() {
+            return `${this.name}-${this.age}`
+        }
+    }
+
+    let truong = new School('THPT Cao Bá Quát-Quốc Oai', 'Hà Nội', 123);
+    console.log(truong);
+    console.log(truong.thongTin());
+
+
+    // tạo ra object - cách 3
+    let thuongMai = {
+        name: 'Đại học thương mại',
+        address: 'Hà Nội',
+        age: 12,
+        thongTin: function() {
+            return `${this.name}-${this.address}-${this.age}`
+        }
+    }
+
+    thuongMai.name='THPTCao Bá Quát';
+
+    console.log(thuongMai);
+    console.log(thuongMai.thongTin());
+</script>

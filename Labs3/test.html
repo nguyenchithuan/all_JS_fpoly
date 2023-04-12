@@ -1,0 +1,55 @@
+<Script>
+    // rẽ nhánh: xử lý các tình huống khác nhau
+    // toán từ 3 ngôi
+    // let a = parseInt(prompt("Mời nhập số: "));
+    // let b = a % 2 == 0 ? "Là số chẵn" : "là số lẻ";
+    // alert(b)
+
+
+
+    // let arr2 = [1,2,3,4,5,6,7,8];
+    // delete arr2[2];
+    // delete arr2[4];
+
+    // // for of thể lấy value từ đầu đến cuối (chỉ dùng với mảng)
+    // for(let i of arr2) { 
+    //     console.log(i);
+    // }
+    // console.log("----------------------") 
+    // // for in để lấy index từ đầu đến cuối (chỉ dùng với mảng);
+    // for (let i in arr2) { 
+    //     console.log(arr2[i]);
+    // }
+
+    let arr = [];
+
+    for (let i = 0; i < 100; i++) {
+        let random = Math.floor(Math.random() * 200) + 1;
+        arr.push(random);       
+    }
+    console.log("Giá trị của mảng: " + arr.join(", "))
+
+
+    // console.log("----------------------");
+    // console.log("Giá trị chia hết cho 3 và 5: ");
+
+    // for (let value of arr) {
+    //     if(value % 3 == 0 && value % 5 == 0) {
+    //         console.log(value);
+    //     }
+    // }    
+
+    console.log("Các số nguyên tố là: ")
+    for(let value of arr) {
+        let dk = true;
+        for(let i = 2; i < value; i++) {
+            if(value % i == 0) {
+                dk = false;       
+                break;
+            }
+        }
+        if(dk) {
+            console.log(value);
+        }
+    }
+</Script>

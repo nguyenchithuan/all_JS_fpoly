@@ -1,0 +1,33 @@
+số 1: <input type="text" id="so1" >
+<br>
+số 2: <input type="text" id="so2">
+<br>
+<button onclick="demso()">run</button>
+
+<p id="ketqua"></p>
+
+<script>
+    function demso() {
+
+        let theso1 = document.querySelector('#so1');
+        let theso2 = document.querySelector('#so2');
+
+        let so1 = parseInt(theso1.value)
+        let so2 = parseInt(theso2.value)
+
+        // theso1.value = "";
+        // theso2.value = "";
+
+        console.log(so1, so2, 10);
+        content = "";
+
+        for (let i = so1; i <= so2; i++) {
+            console.log(i);
+            content += i + "<br>";
+        }
+
+        let theketqua = document.querySelector('#ketqua');
+        // innerHTML sao chép dữ kiệu rồi in ra mà hình chính nhưng phân biệt thẻ.
+        theketqua.innerHTML = content; // hoac innertext nó sẽ cho các thẻ thành chuỗi.
+    }
+</script>

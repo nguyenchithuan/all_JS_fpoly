@@ -1,0 +1,69 @@
+<body onload="genereateTable()">
+    <center>
+        <select onchange="sortTable()" id="sapXep">
+            <option value="">Chọn sắp xếp theo</option>
+            <option value="1">Giá tăng dần</option>
+            <option value="2">Giá giảm dần</option>
+        </select>
+
+        <br> <br>
+        <hr> <br>
+
+        <table border="1">
+            <thead>
+                <th>
+                    <input type="checkbox" id="checkbox_cha">
+                </th>
+
+                <th>Hàng hóa</th>
+                <th>Đơn giá</th>
+                <th>số lượng</th>
+                <th>Thành tiền</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <script src="js.js"></script>
+
+        <script>
+            function sortTable() {
+                let sapXep = document.querySelector('#sapXep').value;
+                if (sapXep == 1) {
+                    dsSanPham.sort(function(a, b){
+                        return a.gia < b.gia ? -1 : 1;
+                    });
+                } else {
+                    dsSanPham.sort(function(a, b) {
+                        return a.gia < b.gia ? 1 : -1;
+                    })
+                }
+                
+            }
+
+            function genereateTable() {
+                let content = "";
+                content = dsSanPham.map(function (value) {
+                    return `<tr id="dong_sp_${value.ma}">
+                        <td>
+                            <input type="checkbox" id="sp_${value.ma} class = checkbox_con">    
+                        </td>
+                        <td>${value.ten}</td>
+                        <td>${value.gia}</td>
+                        <td>
+                            <input type="number" value='0' step='1' id="so_luong_${value.ma}"/>
+                        </td>
+                        <td>
+                            0
+                        </td>
+                    </tr>`;
+                }).join(''); // đang là mảng thành chuỗi
+                document.querySelector('tbody').innerHTML = content;
+            }
+
+            
+
+        </script>
+    </center>
+</body>

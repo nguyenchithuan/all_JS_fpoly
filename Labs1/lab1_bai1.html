@@ -1,0 +1,25 @@
+số thứ 1: <input type="text" id="canh_1"> <br>
+số thứ 2: <input type="text" id="canh_2"> <br>
+<button onclick="tinhTong()">Run</button>
+<h3>Kết quả</h3>
+
+<p id="ketQua"></p>
+<script>
+    function tinhTong() {
+        // lấy thẻ  <input>
+        let theSo1 = document.querySelector("#canh_1")
+        let theSo2 = document.querySelector("#canh_2")
+        // lấy giá trị của thẻ input
+        let giaTri1 = parseInt(theSo1.value)
+        let giaTri2 = parseInt(theSo2.value)
+        let tong = 0;
+        for (let i = giaTri1; i <= giaTri2; i++) {
+            tong += i;            
+        }
+
+        // lấy thẻ <p>
+        let theKetQua = document.querySelector("#ketQua")
+        // gắn và hiển thị kết quả
+        theKetQua.innerHTML = `Tổng các số từ ${giaTri1} đến ${giaTri2} là : ${tong}`;
+    }
+</script>

@@ -1,0 +1,146 @@
+<!-- ----------------------------- code CSS --------------------------- -->
+
+<style>
+    .the {
+        width: 95%;
+    }
+
+    div {
+        margin-left: 20px;
+        padding: 5px;
+    }
+    #layout {
+        width: 35%;
+        border: 1px solid black;
+        border-radius: 3px;
+        background-color: lightsteelblue;
+    }
+</style>
+
+<!-------------------------------- code HTML -------------------------------->
+<div id="layout">
+    <div>
+        <label><b>Họ và tên</b></label> <br>
+        <input type="text" id="name" class="the">
+        <span id="name_error" class="error" style="color: red;"></span>
+    </div>
+
+    <div>
+        <label><b>Lớp</b></label> <br>
+        <input type="text" id="class_name" class="the">
+        <span id="class_name_error" class="error" style="color: red;"></span>
+    </div>
+
+    <div>
+        <label><b>Ngày sinh</b></label> <br>
+        <input type="date" id="birth_date" class="the">
+        <span id="birth_date_name_error" class="error" style="color: red;"></span>
+    </div>
+
+    <div>
+        <label><b>Đã kết hôn hay chưa</b></label> <br>
+        <input type="checkbox" id="is_married">
+        <label for="is_married">Đã kết hôn</label>
+    </div>
+
+    <div>
+        <label><b>Quê quán</b></label> <br>
+        <select id="provice" class="the">
+        </select>
+    </div>
+
+    <div>
+        <button onclick="formSubmit()">Submit</button>
+    </div>
+</div>
+
+<!-- Thẻ hiển thị kết quả -->
+<div id="ketqua"></div>
+
+<!-- -------------------------code JS ---------------------------------->
+<script src="provinces.js"></script>
+
+<script>
+    
+    // cho giá trị vào vào trong select
+    function chayQueQuan() {
+        // lấy giá trị từng tỉnh thành
+        let queQuan = '';
+        for (let thanhPho of provinces) {
+            queQuan += `<option>${thanhPho.name}</option>`
+        }
+
+        // cho hết giá trị đó vào trong thẻ select
+        document.querySelector("#provice").innerHTML = queQuan;
+    }
+    chayQueQuan();
+
+
+    function formSubmit() {
+        // ------------Yêu cầu 1: Hiển thị dữ liệu vào thẻ div KQ---------------
+
+        // lấy các thẻ nhập giá trị
+        let theHoVaTen = document.querySelector('#name');
+        let theLop = document.querySelector('#class_name');
+        let theNgaySinh = document.querySelector('#birth_date');
+        let theQueQuan = document.querySelector('#provice');
+        let theKetHon = document.querySelector('#is_married')
+
+        // lấy giá trị của các thẻ
+        let valueHoVaTen = theHoVaTen.value;
+        let valueLop = theLop.value;
+        let valueNgaySinh = theNgaySinh.value;
+        let valueQueQuan = theQueQuan.value;
+        let valueKetHon = theKetHon.value;
+
+
+        let nhanGiaTri = ''
+
+        if(theKetHon.checked == true) {
+            nhanGiaTri = 'Rồi';
+        } else {
+            nhanGiaTri = 'Chưa';
+        }
+
+
+
+        // Sắp xếp các giá trị cho đẹp
+        let hienThiKetQua = `<br><hr><h1>THÔNG TIN</h1><br>
+                            Họ và tên: ${valueHoVaTen} <br>
+                            Lớp: ${valueLop} <br>
+                            Kết hôn: ${nhanGiaTri}; <br>
+                            Ngày sinh: ${valueNgaySinh} <br>
+                            Quê quán: ${valueQueQuan}`;
+
+
+        // cho dữ liệu vào thẻ kết quả
+        document.querySelector('#ketqua').innerHTML = hienThiKetQua;
+
+
+
+
+
+        // -------------Yêu cầu 2: kiểm tra nếu không-----------------
+
+        // kiểm tra xem có dữ liệu trong thẻ họ và tên chưa
+        let thongBao = '';
+        if (valueHoVaTen == 0) {
+            thongBao = 'Hãy nhập họ và tên!';
+        }
+        document.querySelector('#name_error').innerHTML = thongBao;
+
+        // kiểm tra xem có dữ liệu trong thẻ lớp chưa
+        thongBao = '';
+        if (valueLop == 0) {
+            thongBao = 'Hãy nhập lớp!';
+        }
+        document.querySelector('#class_name_error').innerHTML = thongBao;
+
+        // kiểm tra xem có dữ liệu trong thẻ ngày sinh chưa
+        thongBao = '';
+        if (valueNgaySinh == 0) {
+            thongBao = 'Hãy nhập ngày sinh!';
+        }
+        document.querySelector('#birth_date_name_error').innerHTML = thongBao;
+    }
+</script>

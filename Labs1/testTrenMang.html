@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai tap</title>
+</head>
+
+<body>
+    số 1: <input type="text" id="so1"> <br>
+    số 2: <input type="text" id="so2"> <br>
+    
+    <button onclick = "demSo()">Run</button>
+
+    <p id="ketQua"></p>
+
+    <script>
+        function demSo(){
+            let theSo1 = document.querySelector('#so1')
+            let theSo2 = document.querySelector('#so2')
+
+            let giaTri1 = parseInt(theSo1.value)
+            let giaTri2 = parseInt(theSo2.value)
+
+            console.log(giaTri1, giaTri2)
+            console.log(theSo1, theSo2)
+
+            let luuGiaTri = "";
+            for (let index = giaTri1; index <= giaTri2; index++) {
+                luuGiaTri += index + "<br>";
+            }
+
+            let theKetQua = document.querySelector("#ketQua")
+            // the.innerHTML lưu một giá trị vào trong thẻ và hiện thị ra ma hình
+            theKetQua.innerHTML = luuGiaTri;
+
+            console.log(theKetQua);
+        }
+    </script>
+</body>
+
+</html>

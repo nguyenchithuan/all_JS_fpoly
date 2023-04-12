@@ -1,0 +1,47 @@
+<!-- <ul></ul>
+<select name="" id=""></select>
+<script src=""></script>
+<script>
+    let content = "";
+    for (let tinh of object) {
+        content += `<li>${tinh.name}</li>`;
+    }
+    console.log(content);
+    document.querySelector('ul').innerHTML = content;
+</script> -->
+
+
+
+
+<div id="class">
+<label for="">Email</label> <br>
+<input type="text" name="email"> <br>
+<span id="email_error" style="color: red"></span>
+</div>
+
+<div>
+    <button onclick="formSubmit()">Submit</button>
+</div>
+
+
+<script>
+    function formSubmit() {
+        //1.Xác định thẻ email
+        let emailTag = document.querySelector('[name="email"]');
+        //2.Xác định thẻ lỗi
+        let emailErr = document.querySelector('#email_error');
+        let emailValue = emailTag.value;
+        //3.Kiểm tra xem nếu xẩy ra lỗi thì hiển thị lỗi cho thẻ span
+        let msg ="";
+        if(emailValue.length == 0) {
+            msg = 'Hãy nhập email';
+        }
+
+        emailErr.innerHTML = msg;
+        // email phải chứa ký tứ @
+        // @ không đc ở đầu chuỗi
+        // @ không đc đứng cuối cùng
+        // chỉ có thẻ 1 ký tự @
+    }
+</script>
+

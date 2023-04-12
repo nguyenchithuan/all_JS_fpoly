@@ -1,0 +1,21 @@
+<button onclick="ptb2.giai()">Run</button>
+
+<Script>
+    let ptb2 = new Object();
+    ptb2.a = parseInt(prompt("Nhập a: "));
+    ptb2.b = parseInt(prompt("Nhập b: "));
+    ptb2.c = parseInt(prompt("Nhập c: "));
+    
+
+    ptb2.giai = function() {
+        let delta = this.b * this.b - 4 * this.a * this.c;
+        if(delta < 0) {
+            document.write('Phương trình vô nghiệm');
+        } else if(delta == 0) {
+            document.write('Phương trình vô có nghiệm kép');
+        } else {
+            document.write('Phương trình vô số nghiệm');
+        }
+    }
+</Script>
+

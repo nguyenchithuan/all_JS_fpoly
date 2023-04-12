@@ -1,0 +1,28 @@
+Chuỗi gốc:      <input type="text" id="goc">
+<br>
+Chuỗi cần tìm:  <input type="text" id="canTim">
+<br>
+Chuỗi thay thế: <input type="text" id="thayThe">
+<br>
+<button onclick="thucHien()">Run</button>
+<br>
+<p id="ketQua"></p>
+
+<script>
+    function thucHien() {
+        let chuoiGoc = document.querySelector('#goc').value;
+        let chuoiCanTim = document.querySelector('#canTim').value;
+        let chuoiThayThe = document.querySelector('#thayThe').value;
+        let ketQua = document.querySelector('#ketQua');
+
+        let chuoi = chuoiGoc.replace(chuoiCanTim, chuoiThayThe);
+
+
+        while(chuoiGoc.indexOf(chuoiCanTim) >= 0) {
+            chuoiGoc = chuoiGoc.replace(chuoiCanTim, chuoiThayThe);    
+        }
+        
+        ketQua.innerHTML = "Kết quả: " + chuoi;
+        alert(chuoiGoc)
+    }
+</script>

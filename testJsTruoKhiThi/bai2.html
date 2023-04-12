@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="form">
+        <h1>ĐĂNG KÝ KHÓA HỌC</h1>
+        <div>
+            <label>Họ và tên</label> <br>
+            <input type="text" id="name">
+            <span id="error_name" style="color: red;"></span>
+        </div> <br>
+
+        <div>
+            <label>Email</label> <br>
+            <input type="text" id="email">
+            <span id="error_email" style="color: red;"></span>
+        </div> <br>
+
+        <div>
+            <label>Số điện thoạt</label> <br>
+            <input type="text" id="sdt">
+            <span id="error_sdt" style="color: red;"></span>
+        </div> <br>
+
+        <div>
+            <label>Khóa học</label> <br>
+            <select id="luaChon" onchange="chay()">
+                <option value="500">Khóa HTML</option>
+                <option value="800">Khóa JS</option>
+                <option value="1000">Khóa PHP</option>
+            </select>
+        </div> <br>
+
+        <div>
+            <label>Học phí</label> <br>
+            <input type="number" value="500" id="hocPhi" disabled>
+        </div> <br>
+
+        <div>
+            <label>Hình thức học</label> <br>
+            <label><input type="radio" name="chung">Tại trường</label>
+            <label><input type="radio" name="chung">Học online</label>
+            <span id="error_chung" style="color: red;"></span>
+        </div> <br>
+
+        <button onclick="run()">Đăng ký</button>
+    </div>
+</body>
+<script src="bai2.js"></script>
+
+</html>

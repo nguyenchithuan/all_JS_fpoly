@@ -1,0 +1,39 @@
+<label>Họ và tên</label> <br>
+<input type="text" id="ho_va_ten">
+<br>
+<span id="ho_va_ten_error" style="color: red;"></span> <br>
+<button onclick="chay()">Run</button>
+
+<script>
+    function chay() {
+
+        // Kiểm tra lỗi
+        // không nhập gì
+        // nhập số từ dưới 2
+        // nhập thừ các dấu cách
+
+        let hoVaTenTag = document.querySelector('#ho_va_ten');
+        let valuetag = hoVaTenTag.value.trim();
+
+        let arr = valuetag.split(' ');
+        let arr2 = arr.filter(function (value) {
+            if (value.length != 0) { // kiểm tra xem length trong mang phải lớn hơn 0 thì lấy
+                return true;
+            }
+            return false;
+        }
+        );
+        
+        console.log(arr, arr2);
+        let loi = '';
+        if(valuetag == 0) {
+            loi = 'Voi long nhap ho va ten'; 
+        }else if(arr2.length < 2 || arr2.length != arr.length) {
+            loi = "Không đúng định dạng họ và tên";
+        }
+
+        document.querySelector('#ho_va_ten_error').innerHTML = loi;
+    }
+
+</script>
+

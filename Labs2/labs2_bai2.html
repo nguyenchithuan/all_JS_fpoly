@@ -1,0 +1,14 @@
+<script>
+    let x = prompt("Mời bạn nhập số: ");
+    if(isNaN(x) == false) {
+        x = parseFloat(x);
+        let sqrt = Math.sqrt(x);
+        let pow = Math.pow(x, 2);
+        let round = Math.round(x);
+        alert(`Căn của ${x} là : ${sqrt}`);
+        alert(`Bình phương của ${x} là : ${pow}`);
+        alert(`Làm tròn của ${x} là : ${round}`);
+    } else {
+        alert(`Bạn nhập không phải là số!`)
+    }
+</script>

@@ -1,0 +1,19 @@
+<script>
+    let sinhVien = new Object();
+    sinhVien.ten = prompt("Nhập tên: ");
+    sinhVien.diem = parseFloat(prompt("Nhập điểm: "));
+    let hocLoc;
+    if(sinhVien.diem >= 5) {
+        hocLoc = 'Đậu';
+    } else {
+        hocLoc = 'Trượt';
+    }
+    sinhVien.hocLuc = hocLoc;
+    sinhVien.show = function() {
+        document.write("Họ và tên: " + this.ten);
+        document.write(" Điểm: " + this.diem);
+        document.write(" Học lực: " + this.hocLuc);
+    }
+
+    sinhVien.show();
+</script>

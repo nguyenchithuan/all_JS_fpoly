@@ -1,0 +1,54 @@
+Nhập dãy số (các số phân biệt bởi dấu cách): <input type="text" id="day_so">
+<br>
+<button onclick="run()">Chạy</button>
+<script>
+    function run(){
+        // Đề bài
+        // yêu cầu lấy dữ liệu từ thẻ input
+        // bóc tách chuỗi lấy số (chuyển chuỗi thành mảng)
+        
+        // kiểm tra xem từng số trong mảng bị trùng lặp bao nhiêu lần,
+        // hiển thị ở console.log
+
+
+
+
+        // Bài làm
+        // lấy dữ liệu từ thẻ
+        let giaTriDaySo = document.querySelector('#day_so').value;
+
+        //tách chuỗi thành mảng
+        let arr1 = giaTriDaySo.split(" "); 
+        
+
+        // tạo ra một hàm arr2 chưa các giá trị của arr1 các giá trị không trùng nhau
+        let arr2 = arr1.filter(function(value, index) {
+            for(let i = 0; i < index; i++) {
+                if(value == arr1[i]) {
+                    return false;
+                }
+            }
+            return true;
+        })
+
+
+        // mảng chứa số lần lặp của giá trị
+        let arr3 = [];
+        for(let i = 0; i < arr2.length; i++) {
+            let k = 0;
+            for (let j = 0; j < arr1.length; j++) {
+                if(arr2[i] == arr1[j]) {
+                    k++;
+                }
+            }
+            arr3.push(k);
+        }
+
+        // hiện thị các giá trị trong arr1 bị trùng mấy lần
+        for(let i = 0; i <= arr2.length - 1; i++) {
+            let a = arr2[i];
+            let b = arr3[i];
+            console.log(`Số ${a} trong mảng arr1 bị trùng ${b}`);
+        }
+    }
+</script>
